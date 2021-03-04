@@ -20,6 +20,8 @@ export interface IHolaMundoWebPartProps {
 
 export default class HolaMundoWebPart extends BaseClientSideWebPart<IHolaMundoWebPartProps> {
  
+
+
  public render(): void {
     const element: React.ReactElement<IHolaMundoProps> = React.createElement(
       HolaMundo,
@@ -28,7 +30,9 @@ export default class HolaMundoWebPart extends BaseClientSideWebPart<IHolaMundoWe
         name: this.properties.name,
         visible: this.properties.visible,
         subtitle: strings.subtitle,
-        string: strings
+        string: strings,
+        sPHttpClient: this.context.spHttpClient,
+        urlAbs: this.context.pageContext.web.absoluteUrl
       }
     );
 

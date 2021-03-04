@@ -1,3 +1,7 @@
+import {
+  SPHttpClient,
+  SPHttpClientResponse
+} from '@microsoft/sp-http';
 
 export interface IHolaMundoProps {
   description: string;
@@ -5,4 +9,6 @@ export interface IHolaMundoProps {
   visible: boolean;
   subtitle: string;
   string: IHolaMundoWebPartStrings;
+  sPHttpClient: SPHttpClient;
+  urlAbs: string;
 }
