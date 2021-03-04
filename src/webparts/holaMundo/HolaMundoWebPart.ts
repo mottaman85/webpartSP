@@ -3,6 +3,7 @@ import * as ReactDom from 'react-dom';
 import { Version } from '@microsoft/sp-core-library';
 import {
   IPropertyPaneConfiguration,
+  PropertyPaneCheckbox,
   PropertyPaneTextField
 } from '@microsoft/sp-property-pane';
 import { BaseClientSideWebPart } from '@microsoft/sp-webpart-base';
@@ -13,15 +14,21 @@ import { IHolaMundoProps } from './components/IHolaMundoProps';
 
 export interface IHolaMundoWebPartProps {
   description: string;
+  name: string;
+  visible: boolean; 
 }
 
 export default class HolaMundoWebPart extends BaseClientSideWebPart<IHolaMundoWebPartProps> {
-
-  public render(): void {
+ 
+ public render(): void {
     const element: React.ReactElement<IHolaMundoProps> = React.createElement(
       HolaMundo,
       {
-        description: this.properties.description
+        description: this.properties.description,
+        name: this.properties.name,
+        visible: this.properties.visible,
+        subtitle: strings.subtitle,
+        string: strings
       }
     );
 
@@ -49,6 +56,14 @@ export default class HolaMundoWebPart extends BaseClientSideWebPart<IHolaMundoWe
               groupFields: [
                 PropertyPaneTextField('description', {
                   label: strings.DescriptionFieldLabel
+                }),
+                PropertyPaneTextField('name', {
+                  label: strings.name,
+                  multiline: true
+                }),
+                PropertyPaneCheckbox('visible', {
+                  text: strings.visible,
+                  checked: true
                 })
               ]
             }
