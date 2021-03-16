@@ -5,4 +5,6 @@ export interface ISPLists {
 export interface ISPList {
     Title: string;
     Id: string;
+    Description: string;
+    ImageUrl: string;
 }

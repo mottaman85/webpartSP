@@ -5,10 +5,11 @@ import {
 
 export interface IHolaMundoProps {
   description: string;
-  name: string;
-  visible: boolean;
-  subtitle: string;
-  string: IHolaMundoWebPartStrings;
-  sPHttpClient: SPHttpClient;
-  urlAbs: string;
+  name?: string;
+  visible?: boolean;
+  subtitle?: string;
+  string?: IHolaMundoWebPartStrings;
+  sPHttpClient?: SPHttpClient;
+  urlAbs?: string;
+  status?: string;
 }
